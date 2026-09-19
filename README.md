@@ -4,6 +4,14 @@ A small Python GUI utility for calculating the **AL value of toroidal cores** an
 
 The program can also calculate the required number of turns for a target inductance using the measured AL value.
 
+
+## Screenshot
+
+```markdown
+![T37 AL Calculator](screenshot.png)
+```
+
+
 ## Features
 
 - Calculate AL from:
@@ -96,12 +104,8 @@ Download the latest release and run:
 T37_AL_Calculator.exe
 ```
 
-## Screenshot
 
-```markdown
-![T37 AL Calculator](screenshot.png)
-```
 
 ## License
 
-You can add the license of your choice, for example MIT.
+GPL-3.0 license
