@@ -117,7 +117,14 @@ class ALCalculator(tk.Tk):
         self.lang = detect_language()
         self.current_al = None
 
-        self.geometry("720x560")
+        window_w = 720
+        window_h = 560
+        screen_w = self.winfo_screenwidth()
+        screen_h = self.winfo_screenheight()
+        pos_x = (screen_w - window_w) // 2
+        pos_y = (screen_h - window_h) // 2
+
+        self.geometry(f"{window_w}x{window_h}+{pos_x}+{pos_y}")
         self.resizable(False, False)
         self.configure(bg="#111827")
 
@@ -161,18 +168,6 @@ class ALCalculator(tk.Tk):
 
         self.title_label = ttk.Label(top_row, style="Title.TLabel")
         self.title_label.pack(side="left", anchor="w")
-
-        self.lang_var = tk.StringVar()
-        self.lang_combo = ttk.Combobox(
-            top_row,
-            textvariable=self.lang_var,
-            values=("Українська", "English", "Deutsch"),
-            state="readonly",
-            width=12,
-            font=("Segoe UI", 9),
-        )
-        self.lang_combo.pack(side="right", anchor="e", pady=(3, 0))
-        self.lang_combo.bind("<<ComboboxSelected>>", self.on_language_change)
 
         self.subtitle_label = ttk.Label(self.root_frame, style="Sub.TLabel")
         self.subtitle_label.pack(anchor="w", pady=(1, 1))
@@ -322,19 +317,9 @@ class ALCalculator(tk.Tk):
         self.target_inductance_label.config(text=t["target_inductance"])
         self.target_button.config(text=t["target_button"])
 
-        display = {"uk": "Українська", "en": "English", "de": "Deutsch"}
-        self.lang_var.set(display[self.lang])
-
         self.calculate()
         if self.target_ind.get().strip():
             self.calculate_turns(show_error=False)
-
-    def on_language_change(self, event=None):
-        mapping = {"Українська": "uk", "English": "en", "Deutsch": "de"}
-        selected = self.lang_var.get()
-        if selected in mapping:
-            self.lang = mapping[selected]
-            self.apply_language()
 
     def calculate(self):
         try:
