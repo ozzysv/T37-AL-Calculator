@@ -8,7 +8,8 @@ The program can also calculate the required number of turns for a target inducta
 ## Screenshot
 
 ```markdown
-![T37 AL Calculator](screenshot.png) 
+
+<img src="screenshot.png" />  
 ```
 
 
