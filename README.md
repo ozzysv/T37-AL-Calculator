@@ -7,10 +7,8 @@ The program can also calculate the required number of turns for a target inducta
 
 ## Screenshot
 
-```markdown
-
 <img src="screenshot.png" />  
-```
+
 
 
 ## Features
